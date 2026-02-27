@@ -353,12 +353,30 @@ The joined dataset has 132 rows and 5 columns. Each row represents a specific ye
 ### Question 9
 
 a\. Create a vector called `divisions_of_interest` which contains the descriptions or IDs of CPI divisions you want to visualize. Your `divisions_of_interest` should consist of no more than five divisions. If you're using descriptions, make sure that the spelling of your divisions matches how they appear in the dataset. Then, in 1-2 sentences, state why you chose these divisions.
+```{r}
+unique(us_inflation_full$description)
+divisions_of_interest <- c(
+  "Food and non-Alcoholic beverages",
+  "Housing, water, electricity, gas and other fuels",
+  "Health",
+  "Transport",
+  "Education"
+)
+```
+I chose these divisions because they are major areas of spending for the average household.
 
 ::: callout-tip
 Refer back to the guidance provided in [Question 6] if you're not sure how to create this vector.
 :::
 
 b\. In a single pipeline, filter your reshaped dataset to include only the `divisions_of_interest` from part (a), and save the resulting data frame with a new name so you (1) can refer to this data frame later in your analysis and (2) do not overwrite the data frame you're starting with. Use a short but informative name. Then, in a new pipeline, find the `distinct()` divisions in the data frame you created.
+```{r}
+filtered_us_inflation <- us_inflation_full |>
+  filter(description %in% divisions_of_interest)
+filtered_us_inflation |>
+  distinct(description)
+```
+
 
 ### Question 10
 

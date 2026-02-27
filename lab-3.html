@@ -693,6 +693,31 @@ $ description      &lt;chr&gt; "Food and non-Alcoholic beverages", "Food and non
 <section id="question-9" class="level3">
 <h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>a. Create a vector called <code>divisions_of_interest</code> which contains the descriptions or IDs of CPI divisions you want to visualize. Your <code>divisions_of_interest</code> should consist of no more than five divisions. If you’re using descriptions, make sure that the spelling of your divisions matches how they appear in the dataset. Then, in 1-2 sentences, state why you chose these divisions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(us_inflation_full<span class="sc">$</span>description)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Food and non-Alcoholic beverages"                                  
+ [2] "Alcoholic beverages, tobacco and narcotics"                        
+ [3] "Clothing and footwear"                                             
+ [4] "Housing, water, electricity, gas and other fuels"                  
+ [5] "Furnishings, household equipment and routine household maintenance"
+ [6] "Health"                                                            
+ [7] "Transport"                                                         
+ [8] "Communication"                                                     
+ [9] "Recreation and culture"                                            
+[10] "Education"                                                         
+[11] "Restaurants and hotels"                                            
+[12] "Miscellaneous goods and services"                                  </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>divisions_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Food and non-Alcoholic beverages"</span>,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Housing, water, electricity, gas and other fuels"</span>,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Health"</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Transport"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Education"</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>I chose these divisions because they are major areas of spending for the average household.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -707,6 +732,22 @@ Tip
 </div>
 </div>
 <p>b. In a single pipeline, filter your reshaped dataset to include only the <code>divisions_of_interest</code> from part (a), and save the resulting data frame with a new name so you (1) can refer to this data frame later in your analysis and (2) do not overwrite the data frame you’re starting with. Use a short but informative name. Then, in a new pipeline, find the <code>distinct()</code> divisions in the data frame you created.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>filtered_us_inflation <span class="ot">&lt;-</span> us_inflation_full <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(description <span class="sc">%in%</span> divisions_of_interest)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>filtered_us_inflation <span class="sc">|&gt;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(description)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  description                                     
+  &lt;chr&gt;                                           
+1 Food and non-Alcoholic beverages                
+2 Housing, water, electricity, gas and other fuels
+3 Health                                          
+4 Transport                                       
+5 Education                                       </code></pre>
+</div>
+</div>
 </section>
 <section id="question-10" class="level3">
 <h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
@@ -720,12 +761,12 @@ Tip
 <li>If your legend has labels that are too long, you can try moving the legend to the bottom and stack the labels vertically. <em>Hint:</em> The <code>legend.position</code> and <code>legend.direction</code> arguments of the <code>theme()</code> functions will be useful.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;theme&gt; List of 2
  $ legend.position : chr "bottom"
