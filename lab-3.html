@@ -348,6 +348,29 @@ Tip
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Which countries had the top three highest inflation rates in 2021? Your output should be a data frame with two columns, <code>country</code> and <code>2021</code>, with inflation rates in descending order, and three rows for the top three countries. Briefly comment on how the inflation rates for these countries compare to the inflation rate for United States in that year.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country_inflation <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">2021</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">2021</span><span class="st">`</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  country   `2021`
+  &lt;chr&gt;      &lt;dbl&gt;
+1 Argentina  48.4 
+2 Türkiye    19.6 
+3 Brazil      8.30</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>country_inflation <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"United States"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, <span class="st">`</span><span class="at">2021</span><span class="st">`</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  country       `2021`
+  &lt;chr&gt;          &lt;dbl&gt;
+1 United States   4.70</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -361,6 +384,7 @@ Tip
 <p>Column names that are numbers are not considered “proper” in R, therefore to select them you’ll need to surround them with backticks, e.g.&nbsp;<code>select(</code> <code>`</code> <code>1993</code> <code>`</code> <code>)</code>.</p>
 </div>
 </div>
+<p>The countries withe the highest inflation were Argentina (48.4), Turkey (19.6), and Brazil (8.3). All of which were substantially higher than the U.S inflation rate of 4.7.</p>
 </section>
 <section id="question-3" class="level3">
 <h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
@@ -423,13 +447,13 @@ Important
 <h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>a. Create a vector called <code>countries_of_interest</code> which contains the names of up tp five countries you want to visualize the inflation rates for over the years. For example, if these countries are Türkiye and United States, you can express this as follows:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Türkiye"</span>, <span class="st">"United States"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Türkiye"</span>, <span class="st">"United States"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If they are Türkiye, United States, and China, you can express this as follows:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Türkiye"</span>, <span class="st">"United States"</span>, <span class="st">"China (People's Republic of)"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Türkiye"</span>, <span class="st">"United States"</span>, <span class="st">"China (People's Republic of)"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>So on and so forth… Then, in 1-2 sentences, state why you chose these countries.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -493,8 +517,8 @@ Tip
 </ul>
 <p>Let’s load both of these files.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>us_inflation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us-inflation.csv"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cpi_divisions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cpi-divisions.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>us_inflation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us-inflation.csv"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cpi_divisions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cpi-divisions.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="question-8" class="level3">
 <h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
@@ -538,12 +562,12 @@ Tip
 <li>If your legend has labels that are too long, you can try moving the legend to the bottom and stack the labels vertically. <em>Hint:</em> The <code>legend.position</code> and <code>legend.direction</code> arguments of the <code>theme()</code> functions will be useful.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;theme&gt; List of 2
  $ legend.position : chr "bottom"
