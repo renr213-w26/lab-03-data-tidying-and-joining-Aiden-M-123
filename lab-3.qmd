@@ -148,8 +148,16 @@ In a single pipeline,
 -   select the variables `country` and `inf_ratio` to display as the result of the pipeline.
 
 Do not save this new variable in `inf_ratio`, only calculate and display it so you can answer the following question based on the output of the pipeline.
+```{r}
+country_inflation |>
+  mutate(inf_ratio = `2021` / `1993`) |>
+  arrange(desc(inf_ratio)) |>
+  select(country, inf_ratio)
+```
 
 Which country's inflation change is the largest over this time period? Did inflation increase of decrease between 1993 and 2021 in this country?
+
+New Zealand's inflation change was the largest at 3.06. The ratio is greater than 1 so inflation increased over this period.
 
 ::: callout-tip
 For this question you'll once again need to use variables whose names are numbers (years) in your pipeline. Make sure to surround the names of such variables with backticks (`` ` ``).
