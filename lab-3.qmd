@@ -1,6 +1,7 @@
 ---
 title: "Lab 3 - Data tidying and joining"
 categories: "Lab"
+author: "Aiden Mansfield"
 ---
 
 # Introduction
@@ -270,8 +271,8 @@ Using your data frame from the previous question, create a plot of annual inflat
 -   If your legend has labels that are too long, you can try moving the legend to the bottom and stack the labels vertically. *Hint:* The `legend.position` and `legend.direction` arguments of the `theme()` functions will be useful.
 
 ```{r}
-ggplot(...) +
-  ... +
+#ggplot(...) +
+ # ... +
   theme(
     legend.position = "bottom", 
     legend.direction = "vertical"
