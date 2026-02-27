@@ -172,6 +172,17 @@ Requirements:
 -   Your code must use one of `pivot_longer()` or `pivot_wider()`. There are other ways you can do this reshaping move in R, but this question requires solving this problem by pivoting.
 -   In your `pivot_*()` function, you must use `names_transform = as.numeric` as an argument to transform the variable type to numeric as you pivot the data so that in the resulting data frame the year variable is numeric.
 -   The resulting data frame must be saved as something other than `country_inflation` so you (1) can refer to this data frame later in your analysis and (2) do not overwrite `country_inflation`. Use a short but informative name.
+```{r}
+country_inflation_long <- country_inflation |>
+  pivot_longer(
+    cols = -country,
+    names_to = "year",
+    values_to = "annual_inflation",
+    names_transform = as.numeric
+  )
+glimpse(country_inflation_long)
+```
+The resulting data frame has 1276 rows and 3 columns.
 
 ::: callout-important
 The remaining questions in Part 1 require the use of the pivoted data frame from Question 4.
