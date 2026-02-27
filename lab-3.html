@@ -260,9 +260,77 @@ Note
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Get to know the data.</p>
 <ol type="a">
-<li><p><code>glimpse()</code> at the <code>country_inflation</code> data frame and answer the following questions based on the output. How many rows does <code>country_inflation</code> have and what does each row represent? How many columns does <code>country_inflation</code> have and what does each column represent?</p></li>
-<li><p>Display a list of the countries included in the dataset.</p></li>
+<li><code>glimpse()</code> at the <code>country_inflation</code> data frame and answer the following questions based on the output. How many rows does <code>country_inflation</code> have and what does each row represent? How many columns does <code>country_inflation</code> have and what does each column represent?</li>
 </ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(country_inflation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 44
+Columns: 30
+$ country &lt;chr&gt; "Australia", "Austria", "Belgium", "Canada", "Czech Republic",…
+$ `1993`  &lt;dbl&gt; 1.753653, 3.631786, 2.754426, 1.865079, 20.813026, 1.257862, 2…
+$ `1994`  &lt;dbl&gt; 1.9696348, 2.9534065, 2.3775445, 0.1655629, 10.0394242, 1.9920…
+$ `1995`  &lt;dbl&gt; 4.6277666, 2.2433638, 1.4679612, 2.1487603, 8.9905306, 2.08360…
+$ `1996`  &lt;dbl&gt; 2.6153846, 1.8609741, 2.0770246, 1.5705311, 8.7587747, 2.12629…
+$ `1997`  &lt;dbl&gt; 0.2248876, 1.3059833, 1.6281605, 1.6212164, 8.5961567, 2.18216…
+$ `1998`  &lt;dbl&gt; 0.8601346, 0.9224669, 0.9492503, 0.9959425, 10.6983655, 1.8456…
+$ `1999`  &lt;dbl&gt; 1.4831294, 0.5689865, 1.1208482, 1.7348430, 2.1354484, 2.49779…
+$ `2000`  &lt;dbl&gt; 4.4574351, 2.3448684, 2.5445178, 2.7194400, 3.7753883, 2.90327…
+$ `2001`  &lt;dbl&gt; 4.407135, 2.650000, 2.469258, 2.525120, 4.662676, 2.337875, 2.…
+$ `2002`  &lt;dbl&gt; 2.981575, 1.810359, 1.645214, 2.258394, 1.902981, 2.424437, 1.…
+$ `2003`  &lt;dbl&gt; 2.7325960, 1.3555538, 1.5889640, 2.7585632, 0.1187392, 2.07507…
+$ `2004`  &lt;dbl&gt; 2.3432552, 2.0612068, 2.0972831, 1.8572587, 2.7601078, 1.15435…
+$ `2005`  &lt;dbl&gt; 2.6918317, 2.2991377, 2.7814326, 2.2135520, 1.8570979, 1.81781…
+$ `2006`  &lt;dbl&gt; 3.555288, 1.441547, 1.791208, 2.002025, 2.533993, 1.924221, 1.…
+$ `2007`  &lt;dbl&gt; 2.3276113, 2.1685559, 1.8230563, 2.1383840, 2.8531244, 1.69326…
+$ `2008`  &lt;dbl&gt; 4.350299, 3.215951, 4.489444, 2.370271, 6.358664, 3.416268, 4.…
+$ `2009`  &lt;dbl&gt; 1.771117e+00, 5.063094e-01, -5.314567e-02, 2.994668e-01, 1.019…
+$ `2010`  &lt;dbl&gt; 2.9183400, 1.8135317, 2.1892992, 1.7768715, 1.4727273, 2.31092…
+$ `2011`  &lt;dbl&gt; 3.303850, 3.286583, 3.532082, 2.912135, 1.917219, 2.758682, 3.…
+$ `2012`  &lt;dbl&gt; 1.7627802, 2.4856751, 2.8396634, 1.5156782, 3.2876231, 2.39791…
+$ `2013`  &lt;dbl&gt; 2.44988864, 2.00015749, 1.11309594, 0.93829190, 1.43829787, 0.…
+$ `2014`  &lt;dbl&gt; 2.48792271, 1.60580560, 0.34000283, 1.90663591, 0.34398859, 0.…
+$ `2015`  &lt;dbl&gt; 1.50836672, 0.89656529, 0.56142915, 1.12524136, 0.30936455, 0.…
+$ `2016`  &lt;dbl&gt; 1.276990945, 0.891592367, 1.973852647, 1.428759547, 0.68350420…
+$ `2017`  &lt;dbl&gt; 1.9486474, 2.0812686, 2.1259709, 1.5968841, 2.4505340, 1.14713…
+$ `2018`  &lt;dbl&gt; 1.9114009, 1.9983819, 2.0531650, 2.2682257, 2.1494949, 0.81360…
+$ `2019`  &lt;dbl&gt; 1.6107679, 1.5308955, 1.4368196, 1.9492690, 2.8478760, 0.75813…
+$ `2020`  &lt;dbl&gt; 0.84690554, 1.38190955, 0.74079181, 0.71699963, 3.16129528, 0.…
+$ `2021`  &lt;dbl&gt; 2.863910, 2.766667, 2.440249, 3.395193, 3.839845, 1.853045, 2.…</code></pre>
+</div>
+</div>
+<p>Country inflation has 44 rows and 30 columns. Each represents a year and each column represents a country.</p>
+<ol start="2" type="a">
+<li>Display a list of the countries included in the dataset.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>country_inflation <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(country)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Australia"                    "Austria"                     
+ [3] "Belgium"                      "Canada"                      
+ [5] "Czech Republic"               "Denmark"                     
+ [7] "Finland"                      "France"                      
+ [9] "Germany"                      "Greece"                      
+[11] "Hungary"                      "Iceland"                     
+[13] "Ireland"                      "Italy"                       
+[15] "Japan"                        "Korea"                       
+[17] "Luxembourg"                   "Mexico"                      
+[19] "Netherlands"                  "New Zealand"                 
+[21] "Norway"                       "Poland"                      
+[23] "Portugal"                     "Slovak Republic"             
+[25] "Spain"                        "Sweden"                      
+[27] "Switzerland"                  "Türkiye"                     
+[29] "United Kingdom"               "United States"               
+[31] "Argentina"                    "Brazil"                      
+[33] "Chile"                        "China (People's Republic of)"
+[35] "Estonia"                      "India"                       
+[37] "Indonesia"                    "Israel"                      
+[39] "Russia"                       "Saudi Arabia"                
+[41] "Slovenia"                     "South Africa"                
+[43] "Colombia"                     "Costa Rica"                  </code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -355,13 +423,13 @@ Important
 <h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>a. Create a vector called <code>countries_of_interest</code> which contains the names of up tp five countries you want to visualize the inflation rates for over the years. For example, if these countries are Türkiye and United States, you can express this as follows:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Türkiye"</span>, <span class="st">"United States"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Türkiye"</span>, <span class="st">"United States"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If they are Türkiye, United States, and China, you can express this as follows:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Türkiye"</span>, <span class="st">"United States"</span>, <span class="st">"China (People's Republic of)"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>countries_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Türkiye"</span>, <span class="st">"United States"</span>, <span class="st">"China (People's Republic of)"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>So on and so forth… Then, in 1-2 sentences, state why you chose these countries.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -425,8 +493,8 @@ Tip
 </ul>
 <p>Let’s load both of these files.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>us_inflation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us-inflation.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cpi_divisions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cpi-divisions.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>us_inflation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/us-inflation.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cpi_divisions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cpi-divisions.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="question-8" class="level3">
 <h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
@@ -470,12 +538,12 @@ Tip
 <li>If your legend has labels that are too long, you can try moving the legend to the bottom and stack the labels vertically. <em>Hint:</em> The <code>legend.position</code> and <code>legend.direction</code> arguments of the <code>theme()</code> functions will be useful.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(...) +</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># ... +</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">"vertical"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;theme&gt; List of 2
  $ legend.position : chr "bottom"
