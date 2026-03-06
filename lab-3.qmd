@@ -2,6 +2,8 @@
 title: "Lab 3 - Data tidying and joining"
 categories: "Lab"
 author: "Aiden Mansfield"
+format: 
+  pdf: default # for final output
 ---
 
 # Introduction
@@ -230,7 +232,7 @@ countries_of_interest <- c("United States", "New Zealand", "Canada")
 If they are Türkiye, United States, and China, you can express this as follows:
 
 ```{r}
-#Example
+#Example - # so it does not get executed
 #countries_of_interest <- c(
  # "Türkiye", "United States", "China (People's Republic of)"
 #)
@@ -409,7 +411,7 @@ ggplot(filtered_us_inflation, aes (
   scale_color_brewer(palette = "Set1")
 
 ```
-Most CPI divisions in this plot experience similar variations. However, Transport is an exception that sees the most extreme highs and lows during this period. Food and non-alcoholic behverages also sees the second lowest low around 2016.
+Most CPI divisions in this plot experience similar variations. However, Transport is an exception that sees the most extreme highs and lows during this period. Food and non-alcoholic beverages also sees the second lowest low around 2016.
 
 ::: render-commit-push
 If you haven't yet done so since Part 1, now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
